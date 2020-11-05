@@ -55,7 +55,7 @@ int main() {
 	pthread_create(tOdd, NULL, OddPrinter, data);
 
  	pthread_join(*tEven, NULL);
-    pthread_join(*tOdd, NULL);
+    	pthread_join(*tOdd, NULL);
 
 	free(tEven);
 	free(tOdd);

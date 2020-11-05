@@ -21,13 +21,32 @@ typedef struct {
 	sem_t * evenLock;
 	sem_t * oddLock;
 } dataT;
-void * EvenPrinter(void * data) {
 
+void * printer(int * counter, sem_t * wait, sem_t *post) {
+	while (*counter < 100) {
+		RandomSleep();
+		printf("waiting\n");
+		sem_wait(wait);
+		printf("%d\n", *counter);
+		if (*counter == 55) {
+			pthread_exit(counter);
+		}
+		(*counter)++;
+		sem_post(post);
+	}
+	return NULL;
+}
+void * EvenPrinter(void * data) {
+	dataT * d = (dataT*) data;
+	return printer(&d->counter, d->evenLock, d->oddLock);
 }
 
 void * OddPrinter(void * data) {
-
+	dataT * d = (dataT*) data;
+	return printer(&d->counter, d->oddLock, d->evenLock);
 }
+
+
 int main() {
 	//
 	
@@ -48,7 +67,7 @@ int main() {
 
  	pthread_join(*tEven, NULL);
    	pthread_join(*tOdd, NULL);
-
+	
 	free(tEven);
 	free(tOdd);
 	free(data->evenLock);
