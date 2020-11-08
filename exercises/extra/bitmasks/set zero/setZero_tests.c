@@ -53,7 +53,6 @@ bool testPositiveNumbers2(){
 bool testNegativeNumbers1(){
   unsigned int mask = 1;
   mask = mask << 31;
-  int n = mask - 1;
   if(setZero(mask, 0) != 0) return false;
   return true;
 }
