@@ -1,4 +1,5 @@
 #include "compareInts.h"
+
 #include <stdbool.h>
 
 
@@ -12,7 +13,7 @@ void Test(char* name, bool(*test_fn)()) {
   printf("\n");
 }
 
-bool testPositiveNumbers(){
+bool TestPositiveNumbers(){
 	for(int i = 1 ; i < 1000; i++){
 		if(compareInts(i, i+1) != (i+1))return false;
 		if(compareInts(i+1, i) != (i+1))return false;
@@ -20,14 +21,14 @@ bool testPositiveNumbers(){
   return true;
 }
 
-bool testEqualNumbers(){
+bool TestEqualNumbers(){
 	for(int i= 0 ; i < 1000; i++){
 		if(compareInts(i , i) != i) return false;
 	}
 	return true;
 }
 
-bool testNegativeNumbers(){
+bool TestNegativeNumbers(){
 	for(int i = -1 ; i <-1000; i--){
 		if(compareInts(i, i-1) != i) return false;
 		if(compareInts(i-1, i) != i) return false;
@@ -35,7 +36,7 @@ bool testNegativeNumbers(){
 	return true;
 }
 
-bool testPositiveAndNegativeNumbers(){
+bool TestPositiveAndNegativeNumbers(){
 	for(int i = 0; i < 1000; i++){
 		if(compareInts(i, -i) != i) return false;
 		if(compareInts(-i, i) != i) return false;
@@ -44,9 +45,9 @@ bool testPositiveAndNegativeNumbers(){
 }
 
 int main(){
-  Test("Test positive numbers.", testPositiveNumbers);
-  Test("Test equal numbers.", testEqualNumbers);
-  Test("Test negative numbers.", testNegativeNumbers);
-  Test("Test positive and negative numbers.", testPositiveAndNegativeNumbers);
+  Test("Test positive numbers.", TestPositiveNumbers);
+  Test("Test equal numbers.", TestEqualNumbers);
+  Test("Test negative numbers.", TestNegativeNumbers);
+  Test("Test positive and negative numbers.", TestPositiveAndNegativeNumbers);
   return 0;
 }
