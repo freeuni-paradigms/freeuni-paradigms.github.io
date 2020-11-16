@@ -137,8 +137,8 @@ void *Client(void *args_ptr) {
   printf("Client %d: got line number %d\n", args->id, number);
   sem_post(&checkout.requested);
   sem_wait(&checkout.clients[number]);
-  free(args_ptr);
   printf("Client %d: done\n", args->id);
+  free(args_ptr);
   return NULL;
 }
 
