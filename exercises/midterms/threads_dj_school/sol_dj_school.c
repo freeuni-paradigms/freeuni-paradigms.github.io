@@ -26,7 +26,7 @@ bool quit;
 void Init(){
   sem_init(&teacher_done, 0, 0);
   sem_init(&student_done, 0, 0);
-  sem_init(&teachers_lock, 0, 1);
+  sem_init(&teachers_lock, 0, MAX_NUM_TEACHERS);
   for (int i = 0; i < MAX_NUM_TEACHERS; i++){
     sem_init(&teacher[i].signal, 0, 0);
     sem_init(&teacher[i].set_evaluated, 0, 0);
