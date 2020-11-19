@@ -23,10 +23,10 @@ sem_t student_done;
 sem_t teacher_done;
 bool quit;
 
-void Init(){
+void Init(int num_teachers){
   sem_init(&teacher_done, 0, 0);
   sem_init(&student_done, 0, 0);
-  sem_init(&teachers_lock, 0, MAX_NUM_TEACHERS);
+  sem_init(&teachers_lock, 0, num_teachers);
   for (int i = 0; i < MAX_NUM_TEACHERS; i++){
     sem_init(&teacher[i].signal, 0, 0);
     sem_init(&teacher[i].set_evaluated, 0, 0);
@@ -84,7 +84,7 @@ void* Student(void* args) {
 
 void StartSchool(int num_students, int num_teachers) {
   // IMPLEMENT: initialize semaphores and mutexes if needed.
-  Init();
+  Init(num_teachers);
   g_num_teachers = num_teachers;
   quit = false;
   int teacher_id[MAX_NUM_TEACHERS];
