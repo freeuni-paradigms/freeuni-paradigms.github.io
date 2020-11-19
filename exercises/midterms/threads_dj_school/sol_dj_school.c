@@ -23,6 +23,19 @@ sem_t student_done;
 sem_t teacher_done;
 bool quit;
 
+void Init(){
+  sem_init(&teacher_done, 0, 0);
+  sem_init(&student_done, 0, 0);
+  sem_init(&teachers_lock, 0, 1);
+  for (int i = 0; i < MAX_NUM_TEACHERS; i++){
+    sem_init(&teacher[i].signal, 0, 0);
+    sem_init(&teacher[i].set_evaluated, 0, 0);
+    pthread_mutex_init(&teacher[i].lock, NULL);
+    teacher[i].available = true;
+    teacher[i].good = false;
+  }
+}
+
 void* Teacher(void* args) {
   int id = *(int*)args;
   while (true) {
@@ -71,6 +84,7 @@ void* Student(void* args) {
 
 void StartSchool(int num_students, int num_teachers) {
   // IMPLEMENT: initialize semaphores and mutexes if needed.
+  Init();
   g_num_teachers = num_teachers;
   quit = false;
   int teacher_id[MAX_NUM_TEACHERS];
