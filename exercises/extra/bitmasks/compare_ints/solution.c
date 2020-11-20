@@ -15,7 +15,7 @@ int compareIntsWithoutSignBit(int a, int b){
 				return b;
 			}
 		}
-		mask = mask >> 2;
+		mask = mask >> 1;
 	}
 	return a;
 }
@@ -29,7 +29,7 @@ int compareInts(int a, int b){
 		if((b & mask) == 0){
 			return b;
 		} else {
-			if(compare(-a, -b) == -a){
+			if(compareIntsWithoutSignBit(-a, -b) == -a){
 				return b;
 			}
 			return a;
@@ -38,7 +38,7 @@ int compareInts(int a, int b){
 		if((b & mask)){
 			return a;
 		} else {
-			return compare(a, b);
+			return compareIntsWithoutSignBit(a, b);
 		}
 	}
 }
