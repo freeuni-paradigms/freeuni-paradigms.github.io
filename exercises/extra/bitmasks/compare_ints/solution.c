@@ -1,7 +1,7 @@
 #include "compare_ints.h"
 
 //Compares bits of the elements one after another from the most significant bit to the least significant bit. 
-int compareIntsWithoutSignBit(int a, int b){
+int CompareIntsWithoutSignBit(int a, int b){
 	unsigned int mask = 1;
 	mask = mask << 30;
 	//Does not take sign bit into account.
@@ -22,14 +22,14 @@ int compareIntsWithoutSignBit(int a, int b){
 
 
 //At first compares sign bits, if they are equal, then compares other bits.
-int compareInts(int a, int b){
+int CompareInts(int a, int b){
 	unsigned int mask = 1;
 	mask = mask << 31;
 	if((a & mask)){
 		if((b & mask) == 0){
 			return b;
 		} else {
-			if(compareIntsWithoutSignBit(-a, -b) == -a){
+			if(CompareIntsWithoutSignBit(-a, -b) == -a){
 				return b;
 			}
 			return a;
@@ -38,7 +38,7 @@ int compareInts(int a, int b){
 		if((b & mask)){
 			return a;
 		} else {
-			return compareIntsWithoutSignBit(a, b);
+			return CompareIntsWithoutSignBit(a, b);
 		}
 	}
 }

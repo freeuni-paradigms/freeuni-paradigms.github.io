@@ -1,6 +1,6 @@
 #include "insert_string.h"
 
-char *insertString(char *str1, int index, char *str2){
+char *InsertString(char *str1, int index, char *str2){
   int size = strlen(str1) + strlen(str2) + 1;
   char *res = malloc(size);
   strncpy(res, str1, index);

@@ -24,7 +24,7 @@ bool TestIndexIsZero(){
   char *str1 = strdup("abcd");
   char *str2 = strdup("ab");
   char *res = strdup("ababcd");
-  char *solutionRes = insertString(str1, 0, str2);
+  char *solutionRes = InsertString(str1, 0, str2);
   if (strcmp(solutionRes, res) != 0){
     freeMemory(str1, str2, res, solutionRes);
     return false;
@@ -38,7 +38,7 @@ bool TestInsertIntoTheEmptyString(){
   char *str1 = strdup("");
   char *str2 = strdup("abc");
   char *res = strdup("abc");
-  char *solutionRes = insertString(str1, 0, str2);
+  char *solutionRes = InsertString(str1, 0, str2);
   if(strcmp(solutionRes, res) != 0){
     freeMemory(str1, str2, res, solutionRes);
     return false;
@@ -54,7 +54,7 @@ bool TestInsertEmptyString(){
   char *res = strdup("abcdefg");
   char *solutionRes = NULL;
   for (int i = 0; i < strlen(str1); i++){
-    solutionRes = insertString(str1, i, str2);
+    solutionRes = InsertString(str1, i, str2);
     if (strcmp(solutionRes, res) != 0){
       freeMemory(str1, str2, res, solutionRes);
       return false;
@@ -68,7 +68,7 @@ bool TestBothStringsAreEmpty(){
   char *str1 = strdup("");
   char *str2 = strdup("");
   char *res = strdup("");
-  char *solutionRes = insertString(str1, 0, str2);
+  char *solutionRes = InsertString(str1, 0, str2);
   if (strcmp(solutionRes, res) != 0){
     freeMemory(str1, str2, res, solutionRes);
     return false;
@@ -82,7 +82,7 @@ bool TestLastIndex(){
   char *str1 = strdup("test1");
   char *str2 = strdup("test2");
   char *res = strdup("test1test2");
-  char *solutionRes = insertString(str1, strlen(str1), str2);
+  char *solutionRes = InsertString(str1, strlen(str1), str2);
   if (strcmp(solutionRes, res) != 0){
     freeMemory(str1, str2, res, solutionRes);
     return false;
@@ -96,7 +96,7 @@ bool TestMiddleIndex1(){
   char *str1 = strdup("test1");
   char *str2 = strdup("test2");
   char *res = strdup("tetest2st1");
-  char *solutionRes = insertString(str1, 2, str2);
+  char *solutionRes = InsertString(str1, 2, str2);
   if (strcmp(solutionRes, res) != 0){
     freeMemory(str1, str2, res, solutionRes);
     return false;
@@ -110,7 +110,7 @@ bool TestMiddleIndex2(){
   char *str1 = strdup("test1");
   char *str2 = strdup("test2");
   char *res = strdup("testtest21");
-  char *solutionRes = insertString(str1, 4, str2);
+  char *solutionRes = InsertString(str1, 4, str2);
   if (strcmp(solutionRes, res) != 0){
     freeMemory(str1, str2, res, solutionRes);
     return false;

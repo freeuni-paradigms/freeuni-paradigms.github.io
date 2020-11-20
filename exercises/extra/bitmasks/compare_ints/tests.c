@@ -15,31 +15,31 @@ void Test(char* name, bool(*test_fn)()) {
 
 bool TestPositiveNumbers(){
 	for(int i = 1 ; i < 1000; i++){
-		if(compareInts(i, i+1) != (i+1))return false;
-		if(compareInts(i+1, i) != (i+1))return false;
+		if(CompareInts(i, i+1) != (i+1))return false;
+		if(CompareInts(i+1, i) != (i+1))return false;
 	}
   return true;
 }
 
 bool TestEqualNumbers(){
 	for(int i= 0 ; i < 1000; i++){
-		if(compareInts(i , i) != i) return false;
+		if(CompareInts(i , i) != i) return false;
 	}
 	return true;
 }
 
 bool TestNegativeNumbers(){
 	for(int i = -1 ; i <-1000; i--){
-		if(compareInts(i, i-1) != i) return false;
-		if(compareInts(i-1, i) != i) return false;
+		if(CompareInts(i, i-1) != i) return false;
+		if(CompareInts(i-1, i) != i) return false;
 	}
 	return true;
 }
 
 bool TestPositiveAndNegativeNumbers(){
 	for(int i = 0; i < 1000; i++){
-		if(compareInts(i, -i) != i) return false;
-		if(compareInts(-i, i) != i) return false;
+		if(CompareInts(i, -i) != i) return false;
+		if(CompareInts(-i, i) != i) return false;
 	}
 	return true;
 }

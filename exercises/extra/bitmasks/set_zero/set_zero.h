@@ -1,3 +1,3 @@
 #include <stdio.h>
 
-int setZero(int number, int index);
+int SetZero(int number, int index);

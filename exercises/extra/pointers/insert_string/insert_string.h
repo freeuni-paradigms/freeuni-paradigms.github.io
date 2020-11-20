@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 #include <stdlib.h>
-
 #include <string.h>
 
-char *insertString(char *str1, int index, char *str2);
+char *InsertString(char *str1, int index, char *str2);

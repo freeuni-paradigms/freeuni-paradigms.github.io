@@ -1,4 +1,4 @@
 #include <stdio.h>
 
 
-int compareInts(int a, int b);
+int CompareInts(int a, int b);

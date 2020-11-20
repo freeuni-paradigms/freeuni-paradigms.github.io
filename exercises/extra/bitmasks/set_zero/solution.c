@@ -1,6 +1,6 @@
 #include "set_zero.h"
 
-int setZero(int number, int index){
+int SetZero(int number, int index){
   unsigned int mask = (1 << (32 - index - 1)) - 1;
   unsigned int k = number & mask;
   if (index == 0){
