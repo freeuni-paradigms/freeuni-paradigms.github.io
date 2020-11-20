@@ -38,16 +38,14 @@ bool TestInsertIntoTheEmptyString(){
   char *str1 = strdup("");
   char *str2 = strdup("abc");
   char *res = strdup("abc");
-  char *solutionRes = NULL;
-  for (int i = 0; i < strlen(str2); i++){
-    solutionRes = insertString(str1, i, str2);
-    if (strcmp(solutionRes, res) != 0){
-      freeMemory(str1, str2, res, solutionRes);
-      return false;
-	}
+  char *solutionRes = insertString(str1, 0, str2);
+  if(strcmp(solutionRes, res) != 0){
+    freeMemory(str1, str2, res, solutionRes);
+    return false;
+  }else{
+    freeMemory(str1, str2, res, solutionRes);
+    return true;
   }
-  freeMemory(str1, str2, res, solutionRes);
-  return true;
 }
 
 bool TestInsertEmptyString(){
@@ -61,8 +59,8 @@ bool TestInsertEmptyString(){
       freeMemory(str1, str2, res, solutionRes);
       return false;
     }
+    freeMemory(str1, str2, res, solutionRes);
   }
-  freeMemory(str1, str2, res, solutionRes);
   return true;
 }
 
