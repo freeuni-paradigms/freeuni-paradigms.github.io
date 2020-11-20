@@ -1,4 +1,4 @@
-#include "compareInts.h"
+#include "compare_ints.h"
 
 //Compares bits of the elements one after another from the most significant bit to the least significant bit. 
 int compareIntsWithoutSignBit(int a, int b){

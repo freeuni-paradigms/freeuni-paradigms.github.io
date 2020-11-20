@@ -1,4 +1,4 @@
-#include "setZero.h"
+#include "set_zero.h"
 
 
 int setZero(int number, int index){

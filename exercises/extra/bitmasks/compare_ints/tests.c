@@ -1,4 +1,4 @@
-#include "compareInts.h"
+#include "compare_ints.h"
 
 #include <stdbool.h>
 
