@@ -26,3 +26,9 @@
             (last-elem (cdr lst)))
     )
 )
+
+5.
+(define (length lst)
+    (if (null? lst) 0
+        (+ 1 (length (cdr lst))))
+)
