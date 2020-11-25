@@ -50,3 +50,25 @@
     (map prime? lst)
 )
 
+5.1
+(define (helper k n)
+    (if (zero? k) '()
+        (cons (- n k) (helper (- k 1) n))
+    )
+)
+
+(define (generate-list k)
+    (helper k (+ k 1))
+)
+
+5.2 
+(define (power n)
+    (if (zero? n) 1
+        (* 2 (power (- n 1)))
+    )
+)
+
+5.3
+(define (generate-power-list k)
+    (map power (generate-list k))
+)
