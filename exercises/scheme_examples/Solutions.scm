@@ -31,3 +31,22 @@
     )
 )
 
+4.
+(define (primes? lst)
+    (if (null? lst) '()
+        (if (prime? (car lst)) (cons #t (primes? (cdr lst)))
+            (cons #f (primes? (cdr lst)))
+        )
+    )
+)
+
+(define (primes? lst)
+    (if (null? lst) '()
+        (cons (prime? (car lst)) (primes? (cdr lst)))
+    )
+)
+
+(define (primes? lst)
+    (map prime? lst)
+)
+
