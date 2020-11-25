@@ -33,12 +33,3 @@
         (+ 1 (length (cdr lst))))
 )
 
-6.
-(define (filter-range lst a b)
-    (if (null? lst) '()
-        (if (and (<= a (car lst)) (>= b (car lst))) (cons (car lst) (filter-range (cdr lst) a b))
-            (filter-range (cdr lst) a b)
-        )
-    )
-)
-
