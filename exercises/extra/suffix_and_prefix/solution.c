@@ -5,8 +5,8 @@
 #include <stdbool.h>
 
 char* SuffAndPreff(char* str, int N){
-    if (N > strlen(str))
-        return str;
+    if (2*N > strlen(str))
+        return strdup("");
     bool is_same = true;
     for(int i = 0; i < N; i++){
         if(str[i] != str[strlen(str) - (i + 1)]){

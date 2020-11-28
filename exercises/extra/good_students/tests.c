@@ -23,7 +23,7 @@ void Test(char* name, bool(*test_fn)()) {
   printf("\n");
 }
 
-void* addStudent(char* student, unsigned char score, void* address, size_t* address_length){
+void* AddStudent(char* student, unsigned char score, void* address, size_t* address_length){
   // name  +  '\0'  +  score
   int addition = strlen(student) + 1 + 1 ;
   int start_index = *address_length;               // same + addition + ending

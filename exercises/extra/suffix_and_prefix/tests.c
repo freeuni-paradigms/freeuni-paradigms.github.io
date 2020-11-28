@@ -53,6 +53,11 @@ bool Test6(){
     return answer;
 }
 
+bool Test7(){
+    bool answer = strcmp(SuffAndPreff("abcdefg", 4), "") == 0;
+    return answer;
+}
+
 int main(){
   Test(" str = aba, N = 1", Test1);
   Test(" str = baab, N = 2", Test2);
@@ -60,5 +65,6 @@ int main(){
   Test(" str = FIXIF, N = 2", Test4);
   Test(" str = MARIAM, N = 2", Test5);
   Test(" str = 123454321, N = 3", Test6);
+  Test(" str = abcdefg, N = 4", Test7);
   return 0;
 }
