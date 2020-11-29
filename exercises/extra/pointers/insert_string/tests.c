@@ -13,23 +13,23 @@ void Test(char *name, bool (*test_fn)()){
   printf("\n");
 }
 
-void freeMemory(char *str1, char *str2, char *res, char *solutionRes){
+void FreeMemory(char *str1, char *str2, char *res, char *solution_res){
   free(str1);
   free(str2);
   free(res);
-  free(solutionRes);
+  free(solution_res);
 }
 
 bool TestIndexIsZero(){
   char *str1 = strdup("abcd");
   char *str2 = strdup("ab");
   char *res = strdup("ababcd");
-  char *solutionRes = InsertString(str1, 0, str2);
-  if (strcmp(solutionRes, res) != 0){
-    freeMemory(str1, str2, res, solutionRes);
+  char *solution_res = InsertString(str1, 0, str2);
+  if (strcmp(solution_res, res) != 0){
+    FreeMemory(str1, str2, res, solution_res);
     return false;
   }else{
-    freeMemory(str1, str2, res, solutionRes);
+    FreeMemory(str1, str2, res, solution_res);
     return true;
   }
 }
@@ -38,12 +38,12 @@ bool TestInsertIntoTheEmptyString(){
   char *str1 = strdup("");
   char *str2 = strdup("abc");
   char *res = strdup("abc");
-  char *solutionRes = InsertString(str1, 0, str2);
-  if(strcmp(solutionRes, res) != 0){
-    freeMemory(str1, str2, res, solutionRes);
+  char *solution_res = InsertString(str1, 0, str2);
+  if(strcmp(solution_res, res) != 0){
+    FreeMemory(str1, str2, res, solution_res);
     return false;
   }else{
-    freeMemory(str1, str2, res, solutionRes);
+    FreeMemory(str1, str2, res, solution_res);
     return true;
   }
 }
@@ -52,14 +52,14 @@ bool TestInsertEmptyString(){
   char *str1 = strdup("abcdefg");
   char *str2 = strdup("");
   char *res = strdup("abcdefg");
-  char *solutionRes = NULL;
+  char *solution_res = NULL;
   for (int i = 0; i < strlen(str1); i++){
-    solutionRes = InsertString(str1, i, str2);
-    if (strcmp(solutionRes, res) != 0){
-      freeMemory(str1, str2, res, solutionRes);
+    solution_res = InsertString(str1, i, str2);
+    if (strcmp(solution_res, res) != 0){
+      FreeMemory(str1, str2, res, solution_res);
       return false;
     }
-    freeMemory(str1, str2, res, solutionRes);
+    FreeMemory(str1, str2, res, solution_res);
   }
   return true;
 }
@@ -68,12 +68,12 @@ bool TestBothStringsAreEmpty(){
   char *str1 = strdup("");
   char *str2 = strdup("");
   char *res = strdup("");
-  char *solutionRes = InsertString(str1, 0, str2);
-  if (strcmp(solutionRes, res) != 0){
-    freeMemory(str1, str2, res, solutionRes);
+  char *solution_res = InsertString(str1, 0, str2);
+  if (strcmp(solution_res, res) != 0){
+    FreeMemory(str1, str2, res, solution_res);
     return false;
   }else{
-    freeMemory(str1, str2, res, solutionRes);
+    FreeMemory(str1, str2, res, solution_res);
     return true;
   }
 }
@@ -82,12 +82,12 @@ bool TestLastIndex(){
   char *str1 = strdup("test1");
   char *str2 = strdup("test2");
   char *res = strdup("test1test2");
-  char *solutionRes = InsertString(str1, strlen(str1), str2);
-  if (strcmp(solutionRes, res) != 0){
-    freeMemory(str1, str2, res, solutionRes);
+  char *solution_res = InsertString(str1, strlen(str1), str2);
+  if (strcmp(solution_res, res) != 0){
+    FreeMemory(str1, str2, res, solution_res);
     return false;
   }else{
-    freeMemory(str1, str2, res, solutionRes);
+    FreeMemory(str1, str2, res, solution_res);
     return true;
   }
 }
@@ -96,12 +96,12 @@ bool TestMiddleIndex1(){
   char *str1 = strdup("test1");
   char *str2 = strdup("test2");
   char *res = strdup("tetest2st1");
-  char *solutionRes = InsertString(str1, 2, str2);
-  if (strcmp(solutionRes, res) != 0){
-    freeMemory(str1, str2, res, solutionRes);
+  char *solution_res = InsertString(str1, 2, str2);
+  if (strcmp(solution_res, res) != 0){
+    FreeMemory(str1, str2, res, solution_res);
     return false;
   }else{
-    freeMemory(str1, str2, res, solutionRes);
+    FreeMemory(str1, str2, res, solution_res);
     return true;
   }
 }
@@ -110,12 +110,12 @@ bool TestMiddleIndex2(){
   char *str1 = strdup("test1");
   char *str2 = strdup("test2");
   char *res = strdup("testtest21");
-  char *solutionRes = InsertString(str1, 4, str2);
-  if (strcmp(solutionRes, res) != 0){
-    freeMemory(str1, str2, res, solutionRes);
+  char *solution_res = InsertString(str1, 4, str2);
+  if (strcmp(solution_res, res) != 0){
+    FreeMemory(str1, str2, res, solution_res);
     return false;
   }else{
-    freeMemory(str1, str2, res, solutionRes);
+    FreeMemory(str1, str2, res, solution_res);
     return true;
   }
 }
