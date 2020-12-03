@@ -6,4 +6,4 @@
 
 #include <stdbool.h>
 
-void DeleteDuplicates(char * text);
+void DeleteDuplicates(char ** text);

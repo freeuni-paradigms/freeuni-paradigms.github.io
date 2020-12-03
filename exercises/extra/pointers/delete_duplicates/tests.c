@@ -15,7 +15,7 @@ void Test(char *name, bool (*test_fn)()){
 
 bool TestTextWithoutDuplicates(){
   char * text = strdup("abcdefg");
-  DeleteDuplicates(text);
+  DeleteDuplicates(&text);
   char * solution = strdup("abcdefg");
   if(strcmp(text, solution) == 0){
     free(solution);
@@ -27,7 +27,7 @@ bool TestTextWithoutDuplicates(){
 
 bool TestEmptyString(){
   char * text = strdup("");
-  DeleteDuplicates(text);
+  DeleteDuplicates(&text);
   char * solution = strdup("");
   if(strcmp(text, solution) == 0){
     free(solution);
@@ -39,7 +39,7 @@ bool TestEmptyString(){
 
 bool TestTextsLengthIsOne(){
   char * text = strdup("a");
-  DeleteDuplicates(text);
+  DeleteDuplicates(&text);
   char * solution = strdup("a");
   if(strcmp(text, solution) == 0){
     free(solution);
@@ -52,7 +52,7 @@ bool TestTextsLengthIsOne(){
 
 bool TestTextContainsSameCharacters(){
   char * text = strdup("aaaaaaaaaaaaa");
-  DeleteDuplicates(text);
+  DeleteDuplicates(&text);
   char * solution = strdup("a");
   if(strcmp(text, solution) == 0){
     free(solution);
@@ -64,7 +64,7 @@ bool TestTextContainsSameCharacters(){
 
 bool TestTextContainsDuplicateCharacters1(){
   char * text = strdup("abcdabcd");
-  DeleteDuplicates(text);
+  DeleteDuplicates(&text);
   char * solution = strdup("abcd");
   if(strcmp(text, solution) == 0){
     free(solution);
@@ -76,7 +76,7 @@ bool TestTextContainsDuplicateCharacters1(){
 
 bool TestTextContainsDuplicateCharacters2(){
   char * text = strdup("abcaaabklc");
-  DeleteDuplicates(text);
+  DeleteDuplicates(&text);
   char * solution = strdup("abckl");
   if(strcmp(text, solution) == 0){
     free(solution);

@@ -12,12 +12,13 @@ bool IsAlreadyInResult(char ch, char * result){
 }
 
 
-void DeleteDuplicates(char * text){
+void DeleteDuplicates(char ** text){
   int size = 0;
   int index = 0;
-  char * result = (char *)malloc((strlen(text) + 1) * sizeof(char));
+  char * text2 = *text;
+  char * result = (char *)malloc((strlen(text2) + 1) * sizeof(char));
   while(true){
-    char ch = text[index];
+    char ch = text2[index];
     index++;
     if(ch == '\0'){
       result[size] = '\0';
@@ -28,6 +29,6 @@ void DeleteDuplicates(char * text){
       size++;
     }
   }
-  free(text);
-  result = (char *)realloc(result, size * sizeof(char));
+  free(*text);
+  *text = result;
 }
