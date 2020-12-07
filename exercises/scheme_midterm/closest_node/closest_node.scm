@@ -1,0 +1,1 @@
+(define (farthest-node node))
