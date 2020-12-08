@@ -24,27 +24,33 @@ void Test(char* name, bool(*test_fn)()) {
 }
 
 bool Test1(){
-  return strcmp(ShortToBits(0), "0000000000000000") == 0;
+  ASSERT(strcmp(ShortToBits(0), "0000000000000000") == 0)
+  return true;
 }
 
 bool Test2(){
-  return strcmp(ShortToBits(-495), "1111111000010001") == 0;
+  ASSERT(strcmp(ShortToBits(-495), "1111111000010001") == 0)
+  return true;
 }
 
 bool Test3(){
-  return strcmp(ShortToBits(6417), "0001100100010001") == 0;
+  ASSERT(strcmp(ShortToBits(6417), "0001100100010001") == 0)
+  return true;
 }
 
 bool Test4(){
-  return strcmp(IntToBits(4879452), "00000000010010100111010001011100") == 0;
+  ASSERT(strcmp(IntToBits(4879452), "00000000010010100111010001011100") == 0)
+  return true;
 }
 
 bool Test5(){
-  return strcmp(IntToBits(-4879452), "11111111101101011000101110100100") == 0;
+  ASSERT(strcmp(IntToBits(-4879452), "11111111101101011000101110100100") == 0)
+  return true;
 }
 
 bool Test6(){
-  return strcmp(IntToBits(123456789), "00000111010110111100110100010101") == 0;
+  ASSERT(strcmp(IntToBits(123456789), "00000111010110111100110100010101") == 0)
+  return true;
 }
    
 
