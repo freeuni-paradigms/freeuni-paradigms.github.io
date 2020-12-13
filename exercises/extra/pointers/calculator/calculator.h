@@ -1,0 +1,2 @@
+
+int calculate(char * expression);
