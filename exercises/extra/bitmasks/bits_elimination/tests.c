@@ -56,4 +56,3 @@ int main(){
   Test("Test5 num = 2165421365 left_boundary = 31 right_boundary = 9", Test5);
   return 0;
 }
-
