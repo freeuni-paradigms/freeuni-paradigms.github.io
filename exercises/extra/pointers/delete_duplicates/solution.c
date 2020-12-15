@@ -10,7 +10,6 @@ bool IsAlreadyInResult(char ch, char * result, int size){
   return false;
 }
 
-
 void DeleteDuplicates(char ** text){
   int size = 0;
   int index = 0;
