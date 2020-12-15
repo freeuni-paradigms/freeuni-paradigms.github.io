@@ -1,9 +1,8 @@
 #include "delete_duplicates.h"
 
-
 //Checks if the current character is already in result.
-bool IsAlreadyInResult(char ch, char * result){
-  for(int i = 0; i < strlen(result); i++){
+bool IsAlreadyInResult(char ch, char * result, int size){
+  for(int i = 0; i < size; i++){
     if(result[i] == ch){
       return true;
     }
@@ -24,7 +23,7 @@ void DeleteDuplicates(char ** text){
       result[size] = '\0';
       break;
     }
-    if(!IsAlreadyInResult(ch, result)){
+    if(!IsAlreadyInResult(ch, result, size)){
       result[size] = ch;
       size++;
     }

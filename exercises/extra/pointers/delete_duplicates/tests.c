@@ -1,6 +1,5 @@
 #include "delete_duplicates.h"
 
-
 void Test(char *name, bool (*test_fn)()){
   printf("++ RUNNING TEST: %s\n", name);
   if (test_fn()){
@@ -12,40 +11,33 @@ void Test(char *name, bool (*test_fn)()){
   printf("\n");
 }
 
-
 bool TestTextWithoutDuplicates(){
   char * text = strdup("abcdefg");
   DeleteDuplicates(&text);
-  char * solution = strdup("abcdefg");
+  char * solution = "abcdefg";
   if(strcmp(text, solution) == 0){
-    free(solution);
     return true;
   }
-  free(solution);
   return false;
 }
 
 bool TestEmptyString(){
   char * text = strdup("");
   DeleteDuplicates(&text);
-  char * solution = strdup("");
+  char * solution = "";
   if(strcmp(text, solution) == 0){
-    free(solution);
     return true;
   }
-  free(solution);
   return false;
 }
 
 bool TestTextsLengthIsOne(){
   char * text = strdup("a");
   DeleteDuplicates(&text);
-  char * solution = strdup("a");
+  char * solution = "a";
   if(strcmp(text, solution) == 0){
-    free(solution);
     return true;
   }
-  free(solution);
   return false;
 }
 
@@ -53,39 +45,32 @@ bool TestTextsLengthIsOne(){
 bool TestTextContainsSameCharacters(){
   char * text = strdup("aaaaaaaaaaaaa");
   DeleteDuplicates(&text);
-  char * solution = strdup("a");
+  char * solution = "a";
   if(strcmp(text, solution) == 0){
-    free(solution);
     return true;
   }
-  free(solution);
   return false;
 }
 
 bool TestTextContainsDuplicateCharacters1(){
   char * text = strdup("abcdabcd");
   DeleteDuplicates(&text);
-  char * solution = strdup("abcd");
+  char * solution = "abcd";
   if(strcmp(text, solution) == 0){
-    free(solution);
     return true;
   }
-  free(solution);
   return false;
 }
 
 bool TestTextContainsDuplicateCharacters2(){
   char * text = strdup("abcaaabklc");
   DeleteDuplicates(&text);
-  char * solution = strdup("abckl");
+  char * solution = "abckl";
   if(strcmp(text, solution) == 0){
-    free(solution);
     return true;
   }
-  free(solution);
   return false;
 }
-
 
 int main(){
   Test("Test text without duplicates.", TestTextWithoutDuplicates);
