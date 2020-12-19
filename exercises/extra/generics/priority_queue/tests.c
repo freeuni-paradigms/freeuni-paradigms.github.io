@@ -29,6 +29,7 @@ bool TestPushAndPopInts(){
   for(int i = 0 ; i < 10; i++){
     PQueuePop(&p, elem);
     if(*((int *)elem) != i){
+      free(elem);
       return false;
     }
   }
@@ -47,6 +48,7 @@ bool TestPushAndPopInts2(){
   for(int i = 0 ; i < 10; i++){
     PQueuePop(&p, elem);
     if(*((int *)elem) != (9 - i)){
+      free(elem);
       return false;
     }
   }
@@ -72,6 +74,7 @@ bool TestPushAndPopInts3(){
   for(int i = 0 ; i < 10; i++){
     PQueuePop(&p, elem);
     if(*((int *)elem) != (9 - i)){
+      free(elem);
       return false;
     }
   }
@@ -91,10 +94,12 @@ bool TestPushAndPopIntsWithDuplicates(){
   for(int i = 0 ; i < 10; i++){
     PQueuePop(&p, elem);
     if(*((int *)elem) != i){
+      free(elem);
       return false;
     }
     PQueuePop(&p, elem);
     if(*((int *)elem) != i){
+      free(elem);
       return false;
     }
   }
@@ -119,16 +124,25 @@ bool TestPushAndPopStrings(){
   void * elem = malloc(sizeof(char *));
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "a") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "b") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "c") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   free(elem);
   PQueueDispose(&p);
   return true;
@@ -146,16 +160,25 @@ bool TestPushAndPopStrings2(){
   void * elem = malloc(sizeof(char *));
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "c") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "b") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "a") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   free(elem);
   PQueueDispose(&p);
   return true;
@@ -173,16 +196,25 @@ bool TestPushAndPopStrings3(){
   void * elem = malloc(sizeof(char *));
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "a") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "c") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "b") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   free(elem);
   PQueueDispose(&p);
   return true;
@@ -192,39 +224,60 @@ bool TestPushAndPopStringsWithDuplicates(){
   PQueue p;
   PQueueNew(&p, sizeof(char *), StrFree);
   char * str = strdup("a");
+  char * str2 = strdup("a");
   PQueuePush(&p, &str, 1);
-  PQueuePush(&p, &str, 1);
+  PQueuePush(&p, &str2, 1);
   str = strdup("b");
+  str2 = strdup("b");
   PQueuePush(&p, &str, 2);
-  PQueuePush(&p, &str, 2);
+  PQueuePush(&p, &str2, 2);
   str = strdup("c");
+  str2 = strdup("c");
   PQueuePush(&p, &str, 3);
-  PQueuePush(&p, &str, 3);
+  PQueuePush(&p, &str2, 3);
   void * elem = malloc(sizeof(char *));
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "a") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "a") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "b") != 0 ){
-      return false;
+     StrFree(elem);
+     free(elem);
+     return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "b") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "c") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   PQueuePop(&p, elem);
   if(strcmp(*((char **)elem), "c") != 0 ){
+      StrFree(elem);
+      free(elem);
       return false;
   }
+  StrFree(elem);
   free(elem);
   PQueueDispose(&p);
   return true;
