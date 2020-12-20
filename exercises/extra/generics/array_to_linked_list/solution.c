@@ -12,7 +12,6 @@ void LALInit(LAL* lal, void* array, int elem_size, int array_length, FreeFunctio
 
     if(array != NULL)
         LALAppendArray(lal, array, array_length);
-    
 }
 
 struct Node* FindNodeByIndex(LAL* lal, size_t index){
