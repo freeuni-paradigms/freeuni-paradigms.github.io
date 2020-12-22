@@ -136,4 +136,3 @@ int main(){
   Test("Testing get LALGetInterval function", Test4);
   return 0;
 }
-

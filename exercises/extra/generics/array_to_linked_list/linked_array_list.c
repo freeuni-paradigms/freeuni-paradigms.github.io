@@ -27,5 +27,3 @@ void LALRemove(LAL* lal, size_t index){
 size_t LALSize(LAL* lal){
     return -1;
 }
-
-
