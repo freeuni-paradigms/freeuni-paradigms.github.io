@@ -54,13 +54,13 @@ void LALAppend(LAL* lal, void* elem_address){
         memcpy(lal->head->elem, elem_address, lal->elem_size);
         lal->tail = lal->head;
     } else {
-        struct Node* newNode = malloc(sizeof(struct Node));
-        newNode->previous = lal->tail;
-        newNode->next = NULL;
-        newNode->elem = malloc(lal->elem_size);
-        memcpy(newNode->elem, elem_address, lal->elem_size);
-        lal->tail->next = newNode;
-        lal->tail = newNode;
+        struct Node* new_node = malloc(sizeof(struct Node));
+        new_node->previous = lal->tail;
+        new_node->next = NULL;
+        new_node->elem = malloc(lal->elem_size);
+        memcpy(new_node->elem, elem_address, lal->elem_size);
+        lal->tail->next = new_node;
+        lal->tail = new_node;
     }
     lal->size++;
 }
