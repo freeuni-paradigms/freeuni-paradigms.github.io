@@ -1,0 +1,5 @@
+cp unique_sums.scm test_out
+cp tests.scm test_out
+kawa -J-Xss50M tests.scm
+- unique_sums.scm
++ tests.scm
