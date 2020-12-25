@@ -1,22 +1,27 @@
 #include "calculator.h"
 
-int get_num(char * expression, int * index) {
+int get_num(char ** expr) {
     int num = 0;
-    while (expression[*index] != '\0' && expression[*index] != '+' && expression[*index] != '-') {
-        num = 10 * num + (int)(expression[*index] - '0');
-        (*index)++;
+    while (1) {
+        char cur = **expr;
+        if (cur == '\0' || cur == '+' || cur == '-') {
+            break;
+        }
+
+        num = 10 * num + (cur - '0');
+        (*expr)++;
     }
     return num;
 }
 
-int calculate(char * expression) {
-    int index = 0;
-    int res = get_num(expression, &index);
+int calculate(char * expr) {
+    int res = get_num(&expr);
 
-    while (expression[index] != '\0') {
-        char operator = expression[index++];
+    while (*expr != '\0') {
+        char operator = *expr;
+        expr++;
 
-        int cur_num = get_num(expression, &index);
+        int cur_num = get_num(&expr);
 
         if (operator == '+') {
             res += cur_num;
@@ -25,5 +30,5 @@ int calculate(char * expression) {
         }
     }
 
-    return res; 
+    return res;
 }
