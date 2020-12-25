@@ -1,5 +1,6 @@
-#include <stdbool.h>
 #include "binary_palindrome.h"
+
+#include <stdbool.h>
 
 bool is_bit_one(unsigned int x, int index) {
     return x & (1 << index);

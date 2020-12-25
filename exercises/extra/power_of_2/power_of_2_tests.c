@@ -1,11 +1,11 @@
+#include "power_of_2.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
 #include <stdbool.h>
 #include <time.h> 
-
-#include "power_of_2.h"
 
 #define ASSERT(expr) {							\
   if (!(expr)) {								\
