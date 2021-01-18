@@ -1,0 +1,1 @@
+(define  (encode-sequence sequence) '())
