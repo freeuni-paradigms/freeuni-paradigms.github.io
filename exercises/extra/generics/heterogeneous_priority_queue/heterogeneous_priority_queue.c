@@ -1,6 +1,6 @@
 #include "heterogeneous_priority_queue.h"
 
-void PQueueNew(PQueue * p, int elem_size, void (*free_fn)(void *)){
+void PQueueNew(PQueue * p, void (*free_fn)(void *)){
   
 }
 
