@@ -68,11 +68,11 @@ void * PQueuePop(PQueue * p){
 }
 
 void PQueueDispose(PQueue * p){
-  if(p->free_fn != NULL){
+  /*if(p->free_fn != NULL){
     for(int i = 0 ; i < p->log_len; i++){
-      p->free_fn((char *)p->elems + i * p->bytes[i]);
+      p->free_fn((char *)p->elems + p->bytes[i]);
     }
-  }
+  }*/
   free(p->elems);
   free(p->priorities);
   free(p->bytes);
