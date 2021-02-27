@@ -14,7 +14,7 @@ void PQueueNew(PQueue * p, void (*free_fn)(void *)){
 }
 
 void UpdateBytesArray(PQueue * p, int elem_size, int i){
-   memmove(p->bytes + i + 2, p->bytes + i + 1, (p->log_len - i) * 4);
+   memmove(p->bytes + i + 2, p->bytes + i + 1, (p->log_len - i) * sizeof(int));
    p->bytes[i+1] = p->bytes[i] + elem_size;
    for(int j = i + 2; j <= p->log_len + 1; j++){
      p->bytes[j] = p->bytes[j] + elem_size;
@@ -33,7 +33,7 @@ void PQueuePush(PQueue * p, void * elem, int elem_size, int priority){
       memmove((char *)p->elems + p->bytes[i] + elem_size, (char *)p->elems + p->bytes[i], p->bytes_size - p->bytes[i]);
       memcpy((char *)p->elems + p->bytes[i], elem, elem_size);
       UpdateBytesArray(p, elem_size, i);
-      memmove(p->priorities + i + 1, p->priorities + i, (p->log_len - i) * 4);
+      memmove(p->priorities + i + 1, p->priorities + i, (p->log_len - i) * sizeof(int));
       p->priorities[i] = priority;
       p->log_len++;
       p->bytes_size += elem_size;
@@ -56,11 +56,11 @@ void * PQueuePop(PQueue * p){
   memcpy(elem, p->elems, elem_size);
   if(p->log_len > 1){
     memmove(p->elems, (char *)p->elems + elem_size, p->bytes_size - elem_size);
-    memmove(p->priorities, p->priorities + 1, (p->log_len - 1) * 4);
+    memmove(p->priorities, p->priorities + 1, (p->log_len - 1) * sizeof(int));
     for(int i = 2; i <= p->log_len; i++){
       p->bytes[i] -= elem_size;
     }
-    memmove(p->bytes+1, p->bytes + 2, (p->log_len-1) * 4);
+    memmove(p->bytes+1, p->bytes + 2, (p->log_len-1) * sizeof(int));
   }
   p->log_len--;
   p->bytes_size -= elem_size;
@@ -68,13 +68,7 @@ void * PQueuePop(PQueue * p){
 }
 
 void PQueueDispose(PQueue * p){
-  /*if(p->free_fn != NULL){
-    for(int i = 0 ; i < p->log_len; i++){
-      p->free_fn((char *)p->elems + p->bytes[i]);
-    }
-  }*/
   free(p->elems);
   free(p->priorities);
   free(p->bytes);
 }
-
